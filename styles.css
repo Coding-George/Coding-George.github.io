@@ -133,6 +133,18 @@ h1 {
   background: #e8edf8;
 }
 
+.project-card--portrait {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+.project-card--portrait img {
+  width: min(100%, 240px);
+  height: 420px;
+  justify-self: center;
+  object-fit: contain;
+  background: #111827;
+}
+
 .project-content h2 {
   font-size: clamp(1.35rem, 2.2vw, 1.85rem);
   margin-bottom: 0.65rem;
@@ -178,6 +190,11 @@ h1 {
   .project-card img {
     height: 230px;
   }
+
+  .project-card--portrait img {
+    width: min(100%, 280px);
+    height: 380px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -192,5 +209,10 @@ h1 {
 
   .project-card img {
     height: 200px;
+  }
+
+  .project-card--portrait img {
+    width: min(100%, 240px);
+    height: 320px;
   }
 }
