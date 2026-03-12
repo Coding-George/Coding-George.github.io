@@ -14,7 +14,7 @@ Simple portfolio page for GitHub Pages. It showcases projects with a demo GIF an
 2. Replace `jorge@example.com` with your real email.
 3. For each project card:
 	- Update title, description, and tech stack.
-	- Replace repo link (`href="#"`) with your real GitHub link.
+	- Update the `Explore more of this` link so it points to the related page.
 	- Replace GIF path (for example `assets/project-1.gif`) with your real file.
 
 ## Add More Projects
