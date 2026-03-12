@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Related control theory and R&D projects by Jorge Porcel."
+    />
+    <title>Explore More | Control Theory R&D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-left" aria-hidden="true"></div>
+    <div class="bg-orb orb-right" aria-hidden="true"></div>
+
+    <header class="hero wrapper reveal">
+      <p class="eyebrow">Explore more of this</p>
+      <h1>Research and Development, Control Theory</h1>
+      <p class="intro">
+        Three related initiatives on control performance, robustness tuning, and system validation loops.
+      </p>
+      <a class="cta" href="index.html">Back to main portfolio</a>
+    </header>
+
+    <main class="wrapper projects" id="projects">
+      <article class="project-card reveal">
+        <img src="assets/levelling.gif" alt="Control loop optimization demo" loading="lazy" />
+        <div class="project-content">
+          <h2>Closed-Loop Optimization</h2>
+          <p>
+            Refined controller gains through repeatable test scenarios, reducing overshoot and settling time.
+          </p>
+          <p class="stack">MATLAB, Python, Control Systems</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <img src="assets/AMR_Test.gif" alt="Disturbance rejection validation demo" loading="lazy" />
+        <div class="project-content">
+          <h2>Disturbance Rejection Benchmark</h2>
+          <p>
+            Designed stress tests with real-world disturbances to evaluate stability margins before deployment.
+          </p>
+          <p class="stack">System Identification, ROS2, Data Analysis</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <img src="assets/face.gif" alt="Observer and estimator design demo" loading="lazy" />
+        <div class="project-content">
+          <h2>State Estimator Design</h2>
+          <p>
+            Implemented observer strategies to improve state accuracy in noisy sensing conditions.
+          </p>
+          <p class="stack">Kalman Filtering, Python, Simulation</p>
+        </div>
+      </article>
+    </main>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index * 90, 260)}ms`;
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

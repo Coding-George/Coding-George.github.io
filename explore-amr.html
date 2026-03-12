@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Related Autonomous Mobile Robots projects by Jorge Porcel."
+    />
+    <title>Explore More | Autonomous Mobile Robots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-left" aria-hidden="true"></div>
+    <div class="bg-orb orb-right" aria-hidden="true"></div>
+
+    <header class="hero wrapper reveal">
+      <p class="eyebrow">Explore more of this</p>
+      <h1>Autonomous Mobile Robots</h1>
+      <p class="intro">
+        Three related builds focused on navigation, autonomy, and fleet reliability in dynamic environments.
+      </p>
+      <a class="cta" href="index.html">Back to main portfolio</a>
+    </header>
+
+    <main class="wrapper projects" id="projects">
+      <article class="project-card project-card--portrait reveal">
+        <img src="assets/AMR_Test.gif" alt="AMR waypoint navigation demo" loading="lazy" />
+        <div class="project-content">
+          <h2>Waypoint Navigation Testing</h2>
+          <p>
+            Validated route stability and recovery behaviors under map uncertainty to improve mission completion rate.
+          </p>
+          <p class="stack">ROS2, Nav2, Python</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <img src="assets/levelling.gif" alt="Sensor fusion alignment demo" loading="lazy" />
+        <div class="project-content">
+          <h2>Sensor Fusion and Localization</h2>
+          <p>
+            Combined odometry and vision streams for smoother localization during turns and obstacle interactions.
+          </p>
+          <p class="stack">C++, EKF, Computer Vision</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <img src="assets/face.gif" alt="Human-aware robot interaction demo" loading="lazy" />
+        <div class="project-content">
+          <h2>Human-Aware Motion Planning</h2>
+          <p>
+            Tuned social-distance constraints and speed adaptation for safer operation around people in shared spaces.
+          </p>
+          <p class="stack">ROS2, Motion Planning, Safety Logic</p>
+        </div>
+      </article>
+    </main>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index * 90, 260)}ms`;
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
