@@ -1,12 +1,13 @@
 :root {
-  --bg: #f6f4ef;
-  --ink: #1f2a44;
-  --ink-soft: #3c4b6d;
-  --card: #fffdf7;
-  --line: #d8d3c6;
-  --accent: #f26a2e;
-  --accent-dark: #cf4f18;
-  --shadow: 0 10px 30px rgba(31, 42, 68, 0.12);
+  --bg: #10131a;
+  --ink: #e7edf8;
+  --ink-soft: #a4b0c7;
+  --card: #171b24;
+  --line: #2a3244;
+  --accent: #ff9f43;
+  --accent-dark: #f18921;
+  --link: #7cb7ff;
+  --shadow: 0 14px 34px rgba(4, 7, 12, 0.55);
 }
 
 * {
@@ -22,8 +23,8 @@ body {
 body {
   font-family: "Source Sans 3", sans-serif;
   background:
-    radial-gradient(circle at 20% 10%, rgba(242, 106, 46, 0.12), transparent 35%),
-    radial-gradient(circle at 88% 16%, rgba(31, 42, 68, 0.1), transparent 38%),
+    radial-gradient(circle at 16% 10%, rgba(255, 159, 67, 0.14), transparent 33%),
+    radial-gradient(circle at 84% 15%, rgba(108, 143, 255, 0.15), transparent 35%),
     var(--bg);
   color: var(--ink);
   line-height: 1.55;
@@ -48,7 +49,7 @@ body {
   height: 280px;
   left: -90px;
   top: 35vh;
-  background: #ffb38f;
+  background: #f79c58;
 }
 
 .orb-right {
@@ -56,7 +57,7 @@ body {
   height: 340px;
   right: -120px;
   top: 8vh;
-  background: #9fb6ff;
+  background: #6f93ff;
 }
 
 .hero {
@@ -129,8 +130,8 @@ h1 {
   height: 260px;
   object-fit: cover;
   border-radius: 0.7rem;
-  border: 1px solid #d5deef;
-  background: #e8edf8;
+  border: 1px solid #35415c;
+  background: #111827;
 }
 
 .project-card--portrait {
@@ -142,7 +143,7 @@ h1 {
   height: 420px;
   justify-self: center;
   object-fit: contain;
-  background: #111827;
+  background: #0b0f18;
 }
 
 .project-content h2 {
@@ -161,8 +162,14 @@ h1 {
 
 .project-content a,
 .footer a {
-  color: #163f9a;
+  color: var(--link);
   font-weight: 700;
+  text-underline-offset: 2px;
+}
+
+.project-content a:hover,
+.footer a:hover {
+  color: #a8ccff;
 }
 
 .footer {
