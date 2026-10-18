@@ -198,6 +198,10 @@ h1 {
   object-fit: contain;
 }
 
+.project-card--contain img {
+  object-fit: contain;
+}
+
 .project-content h2 {
   font-size: clamp(1.6rem, 3vw, 2.25rem);
   line-height: 1.1;
@@ -207,6 +211,29 @@ h1 {
 .project-content p {
   margin: 0 0 1rem;
   color: var(--ink-soft);
+}
+
+.project-content ul {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.project-content li {
+  margin-bottom: 0.5rem;
+}
+
+.project-content strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.project-card--text {
+  grid-template-columns: 1fr;
+}
+
+.project-card--text .project-content {
+  max-width: 44em;
 }
 
 .stack {
@@ -291,6 +318,10 @@ h1 {
 
   .project-content {
     text-align: center;
+  }
+
+  .project-content ul {
+    text-align: left;
   }
 }
 

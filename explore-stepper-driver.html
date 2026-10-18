@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Closed-loop-ready stepper motor driver for NEMA 17 by Jorge Porcel."
+    />
+    <title>Explore More | Stepper Motor Driver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="nav" aria-label="Main">
+      <div class="wrapper nav-inner">
+        <a class="nav-brand" href="index.html">Jorge Porcel</a>
+        <div class="nav-links">
+          <a href="index.html#projects">Projects</a>
+          <a href="mailto:geogeporcel@gmail.com">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero wrapper reveal">
+      <p class="eyebrow">Explore more of this</p>
+      <h1>Closed-Loop-Ready Stepper Driver</h1>
+      <p class="intro">
+        A compact two-board stepper motor driver for NEMA 17 (42 × 42 mm), built around a Trinamic
+        TMC4361A and TMC5160A, controlled over SPI from a Raspberry Pi 4 and designed in EasyEDA Pro.
+      </p>
+      <a class="cta" href="index.html">Back to main portfolio</a>
+    </header>
+
+    <main class="wrapper projects" id="projects">
+      <article class="project-card project-card--contain reveal">
+        <img
+          src="assets/StepperDriver_Inventor.gif"
+          alt="Inventor model of the stacked driver boards on a NEMA 17 motor"
+          loading="lazy"
+        />
+        <div class="project-content">
+          <h2>Two Boards on the Back of the Motor</h2>
+          <p>
+            The TMC4361A S-ramp motion controller drives a TMC5160A gate driver with eight
+            external MOSFETs, giving smooth velocity and positioning moves at up to about 3 A per
+            coil from a 12–24 V supply. Both ICs wouldn't fit on one 42 mm board, so the design is
+            a stacked pair joined by a 16-pin header.
+          </p>
+          <ul>
+            <li>
+              <strong>Power board:</strong> TMC5160A, a dual H-bridge with AO4882 MOSFETs,
+              Kelvin-connected current sensing, and tiered VM filtering sized for hot-plugging
+              over a cable.
+            </li>
+            <li>
+              <strong>Logic board:</strong> TMC4361A with a 16 MHz oscillator, a 12–24 V to 5 V
+              buck and 3.3 V LDO sequenced through power-good, an ABN encoder input and a
+              level-shifted home-sensor input.
+            </li>
+          </ul>
+          <p class="stack">Autodesk Inventor, NEMA 17, TMC4361A, TMC5160A</p>
+        </div>
+      </article>
+
+      <article class="project-card project-card--contain reveal">
+        <img
+          src="assets/StepperDriver_EasyEDA.gif"
+          alt="PCB layout of the stepper driver in EasyEDA Pro"
+          loading="lazy"
+        />
+        <div class="project-content">
+          <h2>PCB Design in EasyEDA Pro</h2>
+          <ul>
+            <li>
+              <strong>Single-cable interface:</strong> power and SPI share one RJ45 cable, with
+              pins on twisted pairs and series termination on the SPI lines.
+            </li>
+            <li>
+              <strong>Fewer control lines:</strong> enable, reset, freeze and start moved to SPI,
+              cutting the cable to 8 conductors.
+            </li>
+            <li>
+              <strong>Stacking-header pinout:</strong> power at one end, logic at the other, and a
+              ground next to every fast edge.
+            </li>
+            <li>
+              <strong>Datasheet-driven review:</strong> crossed SPI data lines, 5 V-to-3.3 V input
+              protection, LDO stability and DC-bias derating of ceramic capacitors.
+            </li>
+            <li>
+              <strong>Sourcing:</strong> LCSC/JLCPCB where possible, with RS Components and
+              Farnell as UK fallbacks.
+            </li>
+          </ul>
+          <p class="stack">EasyEDA Pro, PCB Layout, SPI, Signal Integrity</p>
+        </div>
+      </article>
+
+      <article class="project-card project-card--text reveal">
+        <div class="project-content">
+          <h2>Status and Next Steps</h2>
+          <p>
+            The design is finished and the boards have been ordered from JLCPCB. They will
+            arrive with most parts already soldered.
+          </p>
+          <ul>
+            <li>Hand-solder the Trinamic TMC4361A and TMC5160A controllers.</li>
+            <li>Bring up and test both boards with the Raspberry Pi 4.</li>
+            <li>
+              Add an RS-422 receiver for the differential encoder and move to closed-loop
+              operation following Trinamic AN-032.
+            </li>
+          </ul>
+          <p class="stack">EasyEDA Pro, Raspberry Pi 4, TMC4361A, TMC5160A</p>
+        </div>
+      </article>
+    </main>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index * 90, 260)}ms`;
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
